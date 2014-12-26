@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/DenisIzmaylov/flux2/issues"
   },
-  "homepage": "https://github.com/DenisIzmaylov/flux2"
+  "homepage": "https://github.com/DenisIzmaylov/flux2",
+  "dependencies": {
+    "lodash": "^2.4.1"
+  }
 }
