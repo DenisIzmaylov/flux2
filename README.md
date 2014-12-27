@@ -1,5 +1,5 @@
 #Flux2
-Take it easy! Simple and clean Flux-implementation.
+Take it easy! Clean and simple Flux-implementation.
 
 Installation
 ------------
