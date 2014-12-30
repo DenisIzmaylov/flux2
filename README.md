@@ -82,8 +82,16 @@ waitFor()
 ---------
 You can use this feature when you have to render components only when required data are loaded.
 
-#####index.jsx#####
+#####index.js#####
 ```javascript
+'use strict';
+var Flux2 = require('flux2');
+var Dispatcher = Flux2.Dispatcher;
+var React = require('react');
+var MainPage = require('./main-page');
+var commentsStore = require('./comments-store');
+var activeUsersStore = require('./active-users-store');
+
 Dispatcher.waitFor([{
   store: commentsStore,
   ready: function (params) {
