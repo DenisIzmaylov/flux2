@@ -1,5 +1,9 @@
 #Flux2
 Take it easy! Clean and simple Flux-implementation.
+Contents:
+1. Installation
+2. Usage
+3. waitFor()
 
 Installation
 ------------
@@ -71,5 +75,29 @@ module.exports = React.createClass({displayName: 'testComponent',
   _onStoreChange: function () {
     this.setState(getStateFromStore());
   }
+});
+```
+
+waitFor()
+---------
+You can use this feature when you have to render components only when required data are loaded.
+
+#####index.jsx#####
+```javascript
+Dispatcher.waitFor([{
+  store: commentsStore,
+  ready: function (params) {
+    return Array.isArray(params.comments);
+  }
+}, {
+  store: activeUsersStore,
+  ready: function (params) {
+    return Array.isArray(params.users);
+  }
+}], function () {
+  React.render(
+    React.createElement(MainPage, null),
+    document.body
+  );
 });
 ```
