@@ -1,6 +1,8 @@
 #Flux2#
 Take it easy! Clean and simple Flux-implementation.
-Contents:
+
+Contents
+--------
 1. Installation
 2. Usage
 3. waitFor()
