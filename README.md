@@ -1,4 +1,4 @@
-#Flux2
+#Flux2#
 Take it easy! Clean and simple Flux-implementation.
 Contents:
 1. Installation
