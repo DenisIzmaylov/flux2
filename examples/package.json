@@ -1,0 +1,27 @@
+{
+  "name": "flux2-example",
+  "version": "1.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react",
+    "flux"
+  ],
+  "author": "Denis Izmaylov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DenisIzmaylov/flux2/issues"
+  },
+  "homepage": "https://github.com/DenisIzmaylov/flux2",
+  "devDependencies": {
+    "jsx-loader": "^0.12.2",
+    "webpack": "^1.4.15"
+  },
+  "dependencies": {
+    "flux2": "git+https://github.com/DenisIzmaylov/flux2",
+    "react": "^0.12.2"
+  }
+}
