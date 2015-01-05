@@ -9,7 +9,7 @@ Contents
 
 Installation
 ------------
-1. Run ```npm install DenisIzmaylov/flux2 --save```
+1. Run ```npm install flux2 --save```
 
 Usage
 -----
