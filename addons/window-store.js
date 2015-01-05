@@ -30,20 +30,31 @@ var getStateFromDOM = function () {
 
 module.exports = createStore({
     getInitialState: function () {
-        return getStateFromDOM();
+        var result = getStateFromDOM();
+        result.watchScroll = false;
+        result.watchSize = true;
+        return result;
     },
     init: function () {
         this._onWindowResizeBind = this._onWindowResize.bind(this);
-        this.addEventListeners();
+        this._onChange();
     },
 
-    addEventListeners: function () {
-        window.addEventListener('resize', this._onWindowResizeBind);
-        window.addEventListener('scroll', this._onWindowResizeBind);
-    },
-    removeEventListeners: function () {
-        window.removeEventListener('resize', this._onWindowResizeBind);
-        window.removeEventListener('scroll', this._onWindowResizeBind);
+    _onChange: function (changes) {
+        if (typeof changes.watchSize !== 'undefined') {
+            if (changes.watchSize) {
+                window.addEventListener('resize', this._onWindowResizeBind);
+            } else {
+                window.removeEventListener('resize', this._onWindowResizeBind);
+            }
+        }
+        if (typeof changes.watchScroll !== 'undefined') {
+            if (changes.watchScroll) {
+                window.addEventListener('scroll', this._onWindowResizeBind);
+            } else {
+                window.removeEventListener('scroll', this._onWindowResizeBind);
+            }
+        }
     },
     _onWindowResize: function () {
         this.setState(getStateFromDOM());
