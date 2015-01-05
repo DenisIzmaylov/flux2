@@ -2,7 +2,8 @@
 var React = require('react');
 var rootStore = require('./store');
 var rootActions = require('./actions');
-var windowStore = require('flux2/addons/windows-store');
+var Flux2 = require('flux2');
+var windowStore = Flux2.addons.windowStore;
 
 var getStateFromStore = function () {
     return {
@@ -25,7 +26,7 @@ module.exports = React.createClass({displayName: 'Root',
                 <li>Window (scroll): <b>{this.state.window.scrollLeft}x{this.state.window.scrollTop}</b></li>
                 <li><button onClick={this._onClick}>Request Time</button></li>
                 {(typeof this.state.timestamp !== 'undefined') ?
-                    [<li>Last timestamp: {this.state.timestamp}</li>] :
+                    [<li key="ts">Last timestamp: {this.state.timestamp}</li>] :
                     []}
             </ul>
         );
@@ -33,6 +34,10 @@ module.exports = React.createClass({displayName: 'Root',
     componentWillMount: function () {
         rootStore.on('change', this._onStoreChange, this);
         windowStore.on('change', this._onStoreChange, this);
+        windowStore.setState({
+            watchResize: true,
+            watchScroll: true
+        });
     },
     componentWillUnmount: function () {
         rootStore.off('change', this._onStoreChange);
