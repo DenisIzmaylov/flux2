@@ -1,9 +1,11 @@
-var Flux2 = require('flux2');
+'use strict';
+var Flux2 = require('../../../..');
 var Dispatcher = Flux2.Dispatcher;
 
 module.exports = {
     requestTime: function () {
-        Dispatcher.dispatch('setRootState', {
+        console.log(Dispatcher.getState('Root'))
+        Dispatcher.setState('Root', {
             timestamp: Date.now()
         });
     }

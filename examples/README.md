@@ -1,11 +1,13 @@
-#Example for Flux2#
+#Examples#
 
-Installation
+How to Build
 ------------
-1. Run ```npm install```
-2. If you do not have installed webpack - run ```npm install webpack -g```
+1. If you have webpack installed as global package just run:
+```webpack```
 
-Build
------
-Run ```webpack src/index.js assets/bundle.js```
-
+2. Otherwise, run in package root directory:
+```bash
+npm install
+cd examples
+node ../node_modules/bin/webpack
+```

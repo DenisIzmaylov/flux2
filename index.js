@@ -1,10 +1,9 @@
 /* global require, module */
 'use strict';
+var Dispatcher = require('./lib/dispatcher');
+var createStore = require('./lib/create-store');
 
 module.exports = {
-    Dispatcher: require('./lib/dispatcher'),
-    createStore: require('./lib/create-store'),
-    addons: {
-        windowStore: require('./lib/addons/window-store')
-    }
+    Dispatcher: Dispatcher,
+    createStore: createStore(Dispatcher)
 };

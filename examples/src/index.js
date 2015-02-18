@@ -1,9 +1,10 @@
-/* global require, module */
 'use strict';
 var React = require('react');
-var rootComponent = require('./components/root');
+var Flux2 = require('../..');
+Flux2.Dispatcher.debugLog = true;
+var Root = require('./components/root');
 
 React.render(
-    React.createElement(rootComponent, null),
+    React.createElement(Root, null),
     document.getElementById('root')
 );

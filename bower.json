@@ -1,0 +1,30 @@
+{
+  "name": "flux2",
+  "main": "build/flux2.min.js",
+  "version": "1.2.0",
+  "homepage": "https://github.com/DenisIzmaylov/flux2",
+  "authors": [
+    "Denis Izmaylov <izmaylov.dm@gmail.com>"
+  ],
+  "description": "Clean and simple Flux-implementation",
+  "keywords": [
+    "react",
+    "flux",
+    "flux2"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/*",
+    ".git",
+    ".gitignore",
+    "node_modules",
+    "bower_components",
+    "lib",
+    "examples",
+    "test",
+    "tests",
+    "index.js",
+    "webpack.config.js",
+    "package.json"
+  ]
+}

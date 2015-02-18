@@ -1,5 +1,5 @@
 #Flux2#
-Take it easy! Clean and simple Flux-implementation.
+Take it easy! Clean and simple Flux-implementation. Rethink of Flux.
 
 Contents
 --------
@@ -7,9 +7,19 @@ Contents
 2. Usage
 3. waitFor()
 
+
 Installation
 ------------
-1. Run ```npm install flux2 --save```
+Using npm:
+```bash
+npm install flux2 --save
+```
+
+Using bower:
+```bash
+bower install flux2 --save
+```
+
 
 Usage
 -----

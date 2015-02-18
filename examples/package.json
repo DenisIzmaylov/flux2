@@ -16,12 +16,9 @@
     "url": "https://github.com/DenisIzmaylov/flux2/issues"
   },
   "homepage": "https://github.com/DenisIzmaylov/flux2",
-  "devDependencies": {
-    "jsx-loader": "^0.12.2",
-    "webpack": "^1.4.15"
-  },
   "dependencies": {
-    "flux2": "git+https://github.com/DenisIzmaylov/flux2",
-    "react": "^0.12.2"
+    "jsx-loader": "^0.12.2",
+    "react": "^0.12.2",
+    "webpack": "^1.4.15"
   }
 }
