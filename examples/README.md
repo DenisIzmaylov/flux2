@@ -3,7 +3,9 @@
 How to Build
 ------------
 1. If you have webpack installed as global package just run:
-```webpack```
+```base
+webpack
+```
 
 2. Otherwise, run in package root directory:
 ```bash
