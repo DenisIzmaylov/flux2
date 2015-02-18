@@ -11,5 +11,6 @@ webpack
 ```bash
 npm install
 cd examples
+npm install
 node ../node_modules/bin/webpack
 ```
