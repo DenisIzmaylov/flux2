@@ -1,14 +1,34 @@
 var React = require('react');
+var WatchStoreMixin = require('../../../..').WatchStoreMixin;
 var store = require('./store');
 var actions = require('./actions');
-
-var getStateFromStore = function () {
-    return store.state;
-};
+var customStore = require('./custom-store');
+var customActions = require('./custom-actions');
 
 module.exports = React.createClass({displayName: 'Root',
-    getInitialState: function () {
-        return getStateFromStore();
+    mixins: [WatchStoreMixin(
+        store,
+        {
+            store: customStore,
+            initialState: function (store) {
+                console.info('watchStoreMixin:customInitialState', this, store);
+                return {
+                    test1: true
+                }
+            },
+            change: function (changes, store) {
+                console.info('watchStoreMixin:customChange', changes, store);
+                this.setState({
+                    test2: JSON.stringify(store.state)
+                });
+                return {
+                    test3: 'qwe'
+                };
+            }
+        }
+    )],
+    getStateFromStore: function () {
+        return store.state;
     },
     render: function () {
         return (
@@ -21,17 +41,9 @@ module.exports = React.createClass({displayName: 'Root',
             </ul>
         );
     },
-    componentWillMount: function () {
-        store.on('change', this._onStoreChange, this);
-    },
-    componentWillUnmount: function () {
-        store.off('change', this._onStoreChange);
-    },
 
     _onClick: function () {
         actions.requestTime();
-    },
-    _onStoreChange: function () {
-        this.setState(getStateFromStore());
+        customActions.applyCustomAction();
     }
 });

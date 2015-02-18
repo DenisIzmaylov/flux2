@@ -1,9 +1,15 @@
 /* global require, module */
 'use strict';
 var Dispatcher = require('./lib/dispatcher');
-var createStore = require('./lib/create-store');
+var Store = require('./lib/store');
+var WatchStoreMixin = require('./lib/watch-store-mixin');
+Store.prototype.Dispatcher = Dispatcher;
 
 module.exports = {
     Dispatcher: Dispatcher,
-    createStore: createStore(Dispatcher)
+    Store: Store,
+    WatchStoreMixin: WatchStoreMixin(Store),
+    createStore: function (spec) {
+        return new Store(spec);
+    }
 };
