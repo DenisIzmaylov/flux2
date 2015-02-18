@@ -13,7 +13,7 @@ module.exports = React.createClass({displayName: 'Root',
             initialState: function (store) {
                 console.info('watchStoreMixin:customInitialState', this, store);
                 return {
-                    test1: true
+                    test1: 0
                 }
             },
             change: function (changes, store) {
@@ -22,6 +22,7 @@ module.exports = React.createClass({displayName: 'Root',
                     test2: JSON.stringify(store.state)
                 });
                 return {
+                    test1: 1,
                     test3: 'qwe'
                 };
             }
@@ -38,6 +39,9 @@ module.exports = React.createClass({displayName: 'Root',
                 {(this.state.timestamp) ? [
                     <li key="ts">Last timestamp: {this.state.timestamp}</li>
                 ] : []}
+                <li>test1: <b>{this.state.test1}</b></li>
+                <li>test2: <b>{this.state.test2}</b></li>
+                <li>test3: <b>{this.state.test3}</b></li>
             </ul>
         );
     },
