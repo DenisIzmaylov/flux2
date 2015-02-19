@@ -235,4 +235,4 @@ module.exports = {
 6. TODO
 -------
 - mixins (see [dispatchr](https://github.com/yahoo/dispatchr/blob/master/utils/createStore.js))
-- contexts  (see [dispatchr](https://github.com/yahoo/dispatchr/blob/master/utils/createStore.js) again)
+- contexts  (see [dispatchr](https://github.com/yahoo/dispatchr/blob/master/lib/Dispatcher.js) again)
