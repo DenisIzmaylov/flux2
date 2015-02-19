@@ -193,8 +193,10 @@ To get/set store state you can use special methods of Dispatcher:
 // actions.js
 module.exports = {
     fetchMore: function () {
-        var state = Dispatcher.getState('nodes');
-        Dispatcher.setState('nodes', {
+        // get state of the store
+        var state = Dispatcher.getState('Nodes');
+        // dispatch('setNodesState', ...)
+        Dispatcher.setState('Nodes', {
             items: state.items.concat('four', 'five');
         });
     },
