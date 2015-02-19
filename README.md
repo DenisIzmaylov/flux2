@@ -95,7 +95,7 @@ module.exports = Flux2.createStore({
             nodes: []
         };
     },
-    init: function () {
+    storeWillMount: function () {
         Dispatcher.register('setNodesState', this._onSetState, this);
     },
     _onSetState: function (changes) {
