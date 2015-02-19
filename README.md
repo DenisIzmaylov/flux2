@@ -7,7 +7,7 @@ Contents
 2. Usage
 3. waitFor()
 4. WatchStoreMixin
-5. Extra-features
+5. Extra features
 6. TODO
 
 
@@ -184,7 +184,7 @@ module.exports = React.createClass({displayName: 'MyComponent1',
 ...
 ```
 
-5. Extra-features
+5. Extra features
 -----------------
 Don't like pubsub-pattern?
 To get/set store state you can use special methods of Dispatcher:
@@ -211,6 +211,10 @@ module.exports = {
         var store = Dispatcher.getStore('Nodes');
         if (store) {
             store.resetState();
+        } else if (console && console.warn) {
+            console.warn(
+                'reset: store `Nodes` is not found'
+            );
         }
     }
 ...
