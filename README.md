@@ -7,11 +7,12 @@ Contents
 2. Usage
 3. waitFor()
 4. WatchStoreMixin
-5. TODO
+5. Extra-features
+6. TODO
 
 
-Installation
-------------
+1. Installation
+---------------
 Using npm:
 ```bash
 npm install flux2 --save
@@ -23,8 +24,8 @@ bower install flux2 --save
 ```
 
 
-Usage
------
+2. Usage
+--------
 There is example of full component (with the store and actions module).
 It contains 3 files:
 - index.jsx
@@ -105,19 +106,21 @@ module.exports = Flux2.createStore({
 ```
 
 
-waitFor()
----------
+3. waitFor()
+------------
 Use this feature when you have to render components only when required data are loaded.
 
 #####index.js#####
 ```javascript
 'use strict';
+var React = require('react');
 var Flux2 = require('flux2');
 var Dispatcher = Flux2.Dispatcher;
-var React = require('react');
 var MainPage = require('./main-page');
-var commentsStore = require('./comments-store');
-var activeUsersStore = require('./active-users-store');
+var commentsActions = require('./comments/actions');
+var commentsStore = require('./comments/store');
+var activeUsersActions = require('./active-users/actions');
+var activeUsersStore = require('./active-users/store');
 
 Dispatcher.waitFor([{
     store: commentsStore,
@@ -135,10 +138,13 @@ Dispatcher.waitFor([{
         document.body
     );
 });
+commentsActions.fetch();
+activeUsersStore.fetch();
 ```
 
-WatchStoreMixin
----------------
+
+4. WatchStoreMixin
+------------------
 Mixin to make store watching a totally easy.
 
 You can do it in a few lines:
@@ -178,8 +184,25 @@ module.exports = React.createClass({displayName: 'MyComponent1',
 ...
 ```
 
+5. Extra-features
+-----------------
+Don't like pubsub-pattern?
+To get/set store state you can use special methods of Dispatcher:
 
-5. TODO
+```javascript
+// actions.js
+module.exports = {
+    fetchMore: function () {
+        var state = Dispatcher.getState('nodes');
+        Dispatcher.setState('nodes', {
+            items: state.items.concat('four', 'five');
+        });
+    },
+...
+```
+
+
+6. TODO
 -------
 - mixins (see [dispatchr](https://github.com/yahoo/dispatchr/blob/master/utils/createStore.js))
 - contexts
