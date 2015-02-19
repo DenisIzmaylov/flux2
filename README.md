@@ -108,7 +108,7 @@ module.exports = Flux2.createStore({
 
 3. waitFor()
 ------------
-Use this feature when you have to render components only when required data are loaded.
+Use this feature when you want render components only when required data has been loaded.
 
 #####index.js#####
 ```javascript
@@ -186,8 +186,8 @@ module.exports = React.createClass({displayName: 'MyComponent1',
 
 5. Extra features
 -----------------
-Don't like pubsub-pattern?
-To get/set store state you can use special methods of Dispatcher:
+Don't like pub-sub pattern?
+Get and set state of your store with using special methods of Dispatcher:
 
 ```javascript
 // actions.js
@@ -203,7 +203,19 @@ module.exports = {
 ...
 ```
 
-Would like to call method of store?
+It's hard to add new items in this way? Ok, let's do it easier:
+```javascript
+// actions.js
+module.exports = {
+    fetchMore: function () {
+        Dispatcher.appendState('Nodes', {
+            items: ['four', 'five'];
+        });
+    },
+...
+```
+
+Would like to call method of store in the same way? It's easy:
 ```javascript
 // actions.js
 module.exports = {
@@ -219,7 +231,6 @@ module.exports = {
     }
 ...
 ```
-
 
 6. TODO
 -------
