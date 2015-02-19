@@ -203,6 +203,19 @@ module.exports = {
 ...
 ```
 
+Would like to call method of store?
+```javascript
+// actions.js
+module.exports = {
+    reset: function () {
+        var store = Dispatcher.getStore('Nodes');
+        if (store) {
+            store.resetState();
+        }
+    }
+...
+```
+
 
 6. TODO
 -------
