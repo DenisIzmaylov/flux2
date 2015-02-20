@@ -6,9 +6,10 @@ Contents
 1. Installation
 2. Usage
 3. waitFor()
-4. WatchStoreMixin
-5. Extra features
-6. TODO
+4. Stores methods
+5. WatchStoreMixin
+6. Extra features
+7. TODO
 
 
 1. Installation
@@ -143,7 +144,18 @@ activeUsersStore.fetch();
 ```
 
 
-4. WatchStoreMixin
+4. Store methods
+----------------
+According React paradigm Stores can contains those method:
+- storeWillRegister()
+- storeDidRegister()
+- shouldStoreUpdate()
+- willStoreUpdate()
+- didStoreUpdate()
+- storeWillUnregister()
+
+
+5. WatchStoreMixin
 ------------------
 Mixin to make store watching a totally easy.
 
@@ -184,7 +196,7 @@ module.exports = React.createClass({displayName: 'MyComponent1',
 ...
 ```
 
-5. Extra features
+6. Extra features
 -----------------
 Don't like pub-sub pattern?
 Get and set state of your store with using special methods of Dispatcher:
@@ -232,7 +244,35 @@ module.exports = {
 ...
 ```
 
-6. TODO
+Do you have SPA (Single Page Application) and have to create/destroy stores dynamically? Ok:
+```javascript
+// store.js
+...
+module.exports = {
+    storeWillRegister: function () {
+        // something
+    },
+    storeWillUnregister: function () {
+        // something
+    }
+};
+...
+// component.jsx
+...
+var myStore = require('./store');
+
+module.exports = React.createClass({displayName: 'MyComponent1',
+    componentWillMount: function () {
+        this._store = Flux2.createStore(myStore);
+    },
+    componentWillUnmount: function () {
+        this._store.destroy();
+    }
+...
+```
+
+
+7. TODO
 -------
 - mixins (see [dispatchr](https://github.com/yahoo/dispatchr/blob/master/utils/createStore.js))
 - contexts  (see [dispatchr](https://github.com/yahoo/dispatchr/blob/master/lib/Dispatcher.js) again)

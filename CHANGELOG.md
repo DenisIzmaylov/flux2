@@ -1,3 +1,10 @@
+2015-02-20: version 1.3.0
+=========================
+1. Added dispatcher factory - Flux2.createDispatcher().
+2. Added unregister() method and storeWillUnregister() handler for stores.
+3. You can specify custom dispatcher into store constructor.
+
+
 2015-02-18: version 1.2.0
 =========================
 1. Created this document.
