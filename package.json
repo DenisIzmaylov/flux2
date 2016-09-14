@@ -4,7 +4,7 @@
   "description": "Clean and simple to use Flux library",
   "main": "index.js",
   "scripts": {
-    "build": "node ./node_modules/bin/webpack"
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
@@ -29,6 +29,7 @@
     "lodash.forown": "^3.0.0"
   },
   "devDependencies": {
+    "jsx-loader": "^0.13.2",
     "webpack": "^1.4.15"
   }
 }
